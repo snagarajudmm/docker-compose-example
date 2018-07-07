@@ -1,0 +1,31 @@
+version: "2"
+
+services:
+
+  jenkins-container:
+    build:
+      context: ./jenkins
+      dockerfile: Dockerfile
+    image: myjenkins-image
+    container_name: jenkins-server
+    ports:
+      - 9091:8080
+      
+
+  jfrogartifactroy-container:
+    build:
+      context: ./jfrogartifactroy
+      dockerfile: Dockerfile
+    image: jfrogartifactroy-image
+    container_name: jfrogarifactroy-server
+    ports:
+      - 8082:8081
+ 
+  sonar-container:
+    build:
+      context: ./sonar
+      dockerfile: Dockerfile
+    image: sonar-image
+    container_name: sonar-server
+    ports:
+      - 9004:9000
