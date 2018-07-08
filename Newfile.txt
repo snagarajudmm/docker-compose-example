@@ -29,3 +29,13 @@ services:
     container_name: sonar-server
     ports:
       - 9004:9000
+      
+      tomcat-container:
+    build:
+      context: ./tomcat
+      dockerfile: Dockerfile
+    image: mytomcat-image
+    container_name: mytomcat-server
+    ports:
+      - 9093:8085
+      
